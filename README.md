@@ -1,20 +1,20 @@
-# Contact Manager API
+# Contact Manager Web Application
 
-A RESTful Contact Management API built with Ruby on Rails.
+A full-stack Contact Management application built with Ruby on Rails.
 
-This project provides a complete CRUD (Create, Read, Update, Delete) system for managing contacts, using Rails conventions, Active Record, SQLite, and RESTful routes.
+This project implements a complete CRUD system with a web interface, allowing users to create, view, edit, and delete contacts through a browser.
 
 ## Features
 
 * Create contacts
-* List all contacts
-* Retrieve a contact by ID
-* Update existing contacts
+* View contact details
+* Edit contacts
 * Delete contacts
-* Data persistence with SQLite
-* Model validations
-* RESTful architecture
-* Rails API mode
+* Contact listing page
+* Form validations
+* SQLite database persistence
+* MVC architecture
+* Server-side rendering with Rails Views
 
 ## Technologies
 
@@ -22,18 +22,18 @@ This project provides a complete CRUD (Create, Read, Update, Delete) system for 
 * Ruby on Rails
 * SQLite
 * Active Record
-* REST API
+* ERB Templates
+* HTML
+* CSS
 * Git & GitHub
 
-## Project Structure
+## Architecture
 
-The application follows the MVC architecture:
+This application follows the Model-View-Controller pattern.
 
 ### Model
 
-Responsible for data persistence and validations.
-
-Example:
+Handles data persistence and validations.
 
 ```ruby
 class Contact < ApplicationRecord
@@ -42,25 +42,30 @@ class Contact < ApplicationRecord
 end
 ```
 
+### View
+
+Responsible for rendering the user interface.
+
+Pages include:
+
+* Contact list
+* Contact details
+* New contact form
+* Edit contact form
+
 ### Controller
 
-Responsible for handling HTTP requests and responses.
+Handles user requests and business flow.
 
 Actions:
 
 * index
 * show
+* new
 * create
+* edit
 * update
 * destroy
-
-### Routes
-
-```ruby
-resources :contacts
-```
-
-Generates all RESTful endpoints automatically.
 
 ## Installation
 
@@ -73,7 +78,7 @@ git clone <repository-url>
 Enter the project directory:
 
 ```bash
-cd contact_app
+cd contact_web
 ```
 
 Install dependencies:
@@ -88,76 +93,41 @@ Create the database:
 rails db:migrate
 ```
 
-Start the server:
+Start the application:
 
 ```bash
 rails server
 ```
 
-The API will be available at:
+Open your browser:
 
 ```text
 http://localhost:3000
 ```
 
-## API Endpoints
-
-### List Contacts
-
-```http
-GET /contacts
-```
-
-### Get Contact
-
-```http
-GET /contacts/:id
-```
+## Application Flow
 
 ### Create Contact
 
-```http
-POST /contacts
-```
+Users can add a new contact through a form.
 
-Request body:
+### View Contacts
 
-```json
-{
-  "contact": {
-    "name": "John Doe",
-    "phone": "999999999"
-  }
-}
-```
+Displays all contacts stored in the database.
 
-### Update Contact
+### Edit Contact
 
-```http
-PATCH /contacts/:id
-```
-
-Request body:
-
-```json
-{
-  "contact": {
-    "phone": "888888888"
-  }
-}
-```
+Allows updating contact information.
 
 ### Delete Contact
 
-```http
-DELETE /contacts/:id
-```
+Removes a contact permanently from the database.
 
 ## Database
 
-SQLite is used as the database engine.
+SQLite database.
 
-The Contact table contains:
+Table:
 
 | Column     | Type     |
 | ---------- | -------- |
@@ -167,17 +137,20 @@ The Contact table contains:
 | created_at | datetime |
 | updated_at | datetime |
 
-## Learning Objectives
+## Rails Concepts Demonstrated
 
-This project was developed to practice:
-
-* Ruby on Rails fundamentals
-* MVC architecture
+* MVC Architecture
 * Active Record
-* Database migrations
-* RESTful APIs
-* Rails routing
-* Model validations
+* Database Migrations
+* Resource Routing
+* Form Helpers
+* Partials
+* Validations
+* CRUD Operations
+
+## Purpose
+
+This project was developed as part of a Ruby on Rails learning journey, evolving from a console-based Ruby CRUD application to a complete web application using Rails conventions and best practices.
 
 ## Author
 
